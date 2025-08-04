@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 - OSADA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <img src="public/osda-header-logo.png" alt="OSADA" class="logo">
+            <ul class="nav-menu">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="company.html">会社概要</a></li>
+                <li><a href="services.html">事業内容</a></li>
+                <li><a href="recruit.html" class="active">採用情報</a></li>
+                <li><a href="contact.html">お問合せ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-background">
+            <img src="public/crane-8400990_1280.jpg" alt="採用情報">
+        </div>
+        <div class="page-hero-content">
+            <h1 class="page-hero-title">RECRUIT</h1>
+            <p class="page-hero-subtitle">採用情報</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">ホーム</a>
+                <span class="breadcrumb-separator">></span>
+                <span class="breadcrumb-current">採用情報</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Recruit Message -->
+    <section class="recruit-message-section">
+        <div class="container">
+            <h2 class="section-title">一緒に未来を築きませんか</h2>
+            <p class="recruit-message-text">
+                OSADAでは、建築を通じて社会に貢献したいという熱意を持った方を募集しています。
+                経験豊富なスタッフとともに、最新の技術と創造性を活かして、
+                人々の暮らしを豊かにする建築を一緒に創造していきましょう。
+            </p>
+        </div>
+    </section>
+
+    <!-- Job Openings -->
+    <section class="job-openings-section">
+        <div class="container">
+            <h3 class="section-title">募集職種</h3>
+            <div class="job-list">
+                <div class="job-item">
+                    <div class="job-header">
+                        <h4 class="job-title">建築設計士</h4>
+                        <span class="job-type">正社員</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="job-description">
+                            住宅から商業施設まで幅広い建築設計業務を担当していただきます。
+                            CADやBIMソフトを使用した設計図作成、現場監理業務も含まれます。
+                        </p>
+                        <div class="job-requirements">
+                            <h5>応募資格</h5>
+                            <ul>
+                                <li>建築士資格（一級・二級問わず）</li>
+                                <li>設計実務経験3年以上</li>
+                                <li>AutoCAD、Revit等の操作経験</li>
+                            </ul>
+                        </div>
+                        <div class="job-conditions">
+                            <div class="condition-item">
+                                <span class="condition-label">給与</span>
+                                <span class="condition-value">月給 30万円〜50万円（経験により優遇）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">勤務時間</span>
+                                <span class="condition-value">9:00〜18:00（休憩1時間）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">休日</span>
+                                <span class="condition-value">土日祝日、年末年始、夏季休暇</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <h4 class="job-title">施工管理技術者</h4>
+                        <span class="job-type">正社員</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="job-description">
+                            建設現場での施工管理業務全般を担当していただきます。
+                            工程管理、品質管理、安全管理、コスト管理が主な業務内容です。
+                        </p>
+                        <div class="job-requirements">
+                            <h5>応募資格</h5>
+                            <ul>
+                                <li>施工管理技士資格（1級・2級問わず）</li>
+                                <li>施工管理実務経験5年以上</li>
+                                <li>普通自動車免許</li>
+                            </ul>
+                        </div>
+                        <div class="job-conditions">
+                            <div class="condition-item">
+                                <span class="condition-label">給与</span>
+                                <span class="condition-value">月給 35万円〜55万円（経験により優遇）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">勤務時間</span>
+                                <span class="condition-value">8:00〜17:00（現場により変動あり）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">休日</span>
+                                <span class="condition-value">日曜日、祝日、年末年始、夏季休暇</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <h4 class="job-title">新卒採用（総合職）</h4>
+                        <span class="job-type">新卒</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="job-description">
+                            建築学科卒業予定の方を対象とした新卒採用です。
+                            設計部門または施工管理部門での配属となり、先輩社員による丁寧な指導を行います。
+                        </p>
+                        <div class="job-requirements">
+                            <h5>応募資格</h5>
+                            <ul>
+                                <li>2025年3月卒業予定の方</li>
+                                <li>建築学科または関連学科専攻</li>
+                                <li>建築業界への強い関心</li>
+                            </ul>
+                        </div>
+                        <div class="job-conditions">
+                            <div class="condition-item">
+                                <span class="condition-label">給与</span>
+                                <span class="condition-value">月給 25万円（諸手当含む）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">勤務時間</span>
+                                <span class="condition-value">9:00〜18:00（休憩1時間）</span>
+                            </div>
+                            <div class="condition-item">
+                                <span class="condition-label">休日</span>
+                                <span class="condition-value">土日祝日、年末年始、夏季休暇</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <h3 class="section-title">福利厚生・待遇</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="benefit-title">充実の保険制度</h4>
+                    <p class="benefit-description">健康保険、厚生年金、雇用保険、労災保険完備</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="benefit-title">教育・研修制度</h4>
+                    <p class="benefit-description">新人研修、技術研修、資格取得支援制度</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="benefit-title">住宅手当</h4>
+                    <p class="benefit-description">家賃補助制度、社宅制度あり</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4 class="benefit-title">交通費支給</h4>
+                    <p class="benefit-description">通勤交通費全額支給、社用車貸与制度</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="benefit-title">健康管理</h4>
+                    <p class="benefit-description">定期健康診断、人間ドック費用補助</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="benefit-title">働きやすい環境</h4>
+                    <p class="benefit-description">有給取得推進、残業時間管理、働き方改革</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="public/osda-header-logo.png" alt="OSADA" class="footer-logo">
+                    <p>人と街を未来へつなぐ建築会社</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>サービス</h4>
+                        <ul>
+                            <li><a href="#">建築設計</a></li>
+                            <li><a href="#">施工管理</a></li>
+                            <li><a href="#">リノベーション</a></li>
+                            <li><a href="#">コンサルティング</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>会社情報</h4>
+                        <ul>
+                            <li><a href="company.html">会社概要</a></li>
+                            <li><a href="recruit.html">採用情報</a></li>
+                            <li><a href="contact.html">お問い合わせ</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OSADA Architecture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

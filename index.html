@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSADA - 建築・設計</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <img src="public/osda-header-logo.png" alt="OSADA" class="logo">
+            <ul class="nav-menu">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="company.html">会社概要</a></li>
+                <li><a href="services.html">事業内容</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="contact.html">お問合せ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="public/construction-1281604_1280.jpg" alt="建築現場">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">人と街を未来へつなぐ</h1>
+            <p class="hero-subtitle">確かな技術と豊かな発想で、お客様の理想を形にします</p>
+            <a href="#about" class="hero-cta">詳細を見る</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2 class="section-title">NEWS</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">2024.01.15</span>
+                    <span class="news-category">お知らせ</span>
+                    <a href="#" class="news-title">Web サイトを更新しました</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024.01.10</span>
+                    <span class="news-category">実績</span>
+                    <a href="#" class="news-title">大型商業施設の建設が完了しました</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024.01.05</span>
+                    <span class="news-category">お知らせ</span>
+                    <a href="#" class="news-title">年末年始の営業について</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2023.12.20</span>
+                    <span class="news-category">実績</span>
+                    <a href="#" class="news-title">住宅プロジェクトが竣工しました</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">ABOUT US</h2>
+                    <h3 class="about-subtitle">私たちについて</h3>
+                    <p class="about-description">
+                        私たちは、建築を通じて人々の暮らしを豊かにし、街の未来を創造することを使命としています。
+                        確かな技術力と豊富な経験を基に、お客様のご要望に最適なソリューションを提供いたします。
+                    </p>
+                    <a href="#" class="btn-primary">詳細を見る</a>
+                </div>
+                <div class="about-image">
+                    <img src="public/construction-site-1477687_1280.jpg" alt="建築チーム">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">SCOPE OF BUSINESS</h2>
+            <p class="services-subtitle">私たちの事業領域</p>
+            <div class="services-content">
+                <div class="service-image">
+                    <img src="public/construction-site-2733678_1280.jpg" alt="建築設計">
+                </div>
+                <div class="service-text">
+                    <h3 class="service-title">建築設計について</h3>
+                    <p class="service-description">
+                        住宅から商業施設、公共建築まで幅広い分野で設計業務を行っています。
+                        お客様のニーズを的確に把握し、機能性と美しさを兼ね備えた建築を提案いたします。
+                        環境に配慮した持続可能な設計を心がけ、長く愛される建築を目指しています。
+                    </p>
+                    <a href="#" class="btn-primary">詳細を見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strength Section -->
+    <section id="strength" class="strength-section">
+        <div class="container">
+            <div class="strength-content">
+                <div class="strength-text">
+                    <h2 class="section-title">STRENGTH</h2>
+                    <h3 class="strength-subtitle">私たちの強み</h3>
+                    <p class="strength-description">
+                        豊富な経験と最新技術を融合させ、お客様に最高品質のサービスを提供します。
+                        プロジェクトの企画段階から完成まで、一貫したサポート体制でお客様をバックアップいたします。
+                        地域に根ざした活動を通じて、信頼関係を築いてまいりました。
+                    </p>
+                    <a href="#" class="btn-primary">詳細を見る</a>
+                </div>
+                <div class="strength-image">
+                    <img src="public/crane-8400990_1280.jpg" alt="建築技術">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2 class="section-title">PICK UP WORKS</h2>
+            <div class="works-slider">
+                <div class="work-slide">
+                    <img src="public/construction-1281604_1280.jpg" alt="プロジェクト1">
+                    <div class="work-overlay">
+                        <h4>商業施設プロジェクト</h4>
+                        <p>モダンなデザインと機能性を両立した大型商業施設の設計・施工を手がけました。</p>
+                    </div>
+                </div>
+                <div class="work-slide">
+                    <img src="public/construction-site-1477687_1280.jpg" alt="プロジェクト2">
+                    <div class="work-overlay">
+                        <h4>住宅プロジェクト</h4>
+                        <p>家族の暮らしを豊かにする、温かみのある住宅設計を実現しました。</p>
+                    </div>
+                </div>
+                <div class="work-slide">
+                    <img src="public/construction-site-2733678_1280.jpg" alt="プロジェクト3">
+                    <div class="work-overlay">
+                        <h4>オフィスビル</h4>
+                        <p>働く人々の快適性を追求した、最新のオフィス環境を提供しています。</p>
+                    </div>
+                </div>
+                <div class="work-slide">
+                    <img src="public/crane-8400990_1280.jpg" alt="プロジェクト4">
+                    <div class="work-overlay">
+                        <h4>公共施設</h4>
+                        <p>地域コミュニティの中心となる公共施設の設計を担当しました。</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="works-detail-btn">実績詳細を見る</a>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+        <div class="container">
+            <h2 class="section-title">OUR VALUES</h2>
+            <div class="values-content">
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="value-title-section">
+                            <h4 class="value-title">お客様との信頼関係の構築</h4>
+                            <p class="value-subtitle">TRUST BUILDING</p>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        <p>お客様のニーズを深く理解し、プロジェクトの成功に向けて共に歩んでいきます。透明性のあるコミュニケーションを心がけ、長期的なパートナーシップを築いています。</p>
+                        <ul class="value-points">
+                            <li>定期的な進捗報告と情報共有</li>
+                            <li>お客様の要望に対する迅速な対応</li>
+                            <li>アフターサービスの充実</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="value-title-section">
+                            <h4 class="value-title">持続可能な建築への取り組み</h4>
+                            <p class="value-subtitle">SUSTAINABILITY</p>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        <p>環境に配慮した設計と施工を通じて、持続可能な社会の実現に貢献します。省エネルギー技術や再生可能エネルギーの活用により、地球環境の保護に努めています。</p>
+                        <ul class="value-points">
+                            <li>省エネルギー設計の推進</li>
+                            <li>環境負荷の少ない建材の選定</li>
+                            <li>長寿命建築の実現</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-icon"><i class="fas fa-award"></i></div>
+                        <div class="value-title-section">
+                            <h4 class="value-title">チーム一丸となった品質の追求</h4>
+                            <p class="value-subtitle">QUALITY EXCELLENCE</p>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        <p>設計から施工まで、すべての工程において最高品質を追求します。経験豊富なスタッフが連携し、お客様の期待を上回る成果を提供いたします。</p>
+                        <ul class="value-points">
+                            <li>厳格な品質管理システム</li>
+                            <li>継続的な技術向上への取り組み</li>
+                            <li>チーム間の密な連携体制</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section id="access" class="access-section">
+        <div class="container">
+            <h2 class="section-title">ACCESS</h2>
+            <div class="access-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>所在地</h4>
+                            <p>〒123-4567<br>
+                            東京都渋谷区○○○○<br>
+                            ○○ビル 5F</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>電話番号</h4>
+                            <p>03-1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>メールアドレス</h4>
+                            <p>info@osada-arch.co.jp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <img src="public/construction-site-1477687_1280.jpg" alt="地図">
+                    <div class="map-overlay">
+                        <p>● 地図を開く</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="public/osda-header-logo.png" alt="OSADA" class="footer-logo">
+                    <p>人と街を未来へつなぐ建築会社</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>サービス</h4>
+                        <ul>
+                            <li><a href="#">建築設計</a></li>
+                            <li><a href="#">施工管理</a></li>
+                            <li><a href="#">リノベーション</a></li>
+                            <li><a href="#">コンサルティング</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>会社情報</h4>
+                        <ul>
+                            <li><a href="#">会社概要</a></li>
+                            <li><a href="#">採用情報</a></li>
+                            <li><a href="#">お問い合わせ</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OSADA Architecture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
