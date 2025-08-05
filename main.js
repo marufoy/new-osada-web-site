@@ -66,27 +66,137 @@ animateElements.forEach(el => {
 });
 
 // Initialize Slick Slider for Works section
-$(document).ready(function(){
-    $('.works-slider').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear',
-        autoplay: true,
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Slick Slider for Works Section
+    const worksSlider = document.querySelector('.works-slider');
+    if (worksSlider) {
+        $(worksSlider).slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                    }
                 }
-            }
-        ]
-    });
+            ]
+        });
+    }
+
+    // microCMS Config
+    const serviceDomain = 'iymoqayrww';
+    const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
+
+    // Fetch News from microCMS
+    const newsListContainer = document.getElementById('news-list-container');
+    if (newsListContainer) {
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/news?limit=4`, {
+            headers: {
+                'X-MICROCMS-API-KEY': apiKey,
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            newsListContainer.innerHTML = ''; // Clear loading message
+            data.contents.forEach(article => {
+                const publishedAt = new Date(article.publishedAt).toLocaleDateString('ja-JP').replace(/\//g, '.');
+                const category = article.category || 'お知らせ';
+                const title = article.title;
+                const link = `news-detail.html?id=${article.id}`;
+
+                const item = document.createElement('div');
+                item.className = 'news-item';
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    window.location.href = link;
+                });
+
+                item.innerHTML = `
+                    <span class="news-date">${publishedAt}</span>
+                    <span class="news-category">${category}</span>
+                    <a href="${link}" class="news-title">${title}</a>
+                `;
+                newsListContainer.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching news:', error);
+            newsListContainer.innerHTML = '<p>ニュースの読み込みに失敗しました。</p>';
+        });
+    }
+
+    // Fetch Portfolio from microCMS
+    const portfolioGridContainer = document.getElementById('portfolio-grid-container');
+    if (portfolioGridContainer) {
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/works`, {
+            headers: {
+                'X-MICROCMS-API-KEY': apiKey,
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            portfolioGridContainer.innerHTML = ''; // Clear loading message
+            data.contents.forEach(work => {
+                const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
+                const category = work.category || '実績';
+                const title = work.title;
+                const description = work.short_description;
+                const completedDate = work.completed_date || 'N/A';
+                const area = work.area || 'N/A';
+                const link = `works-detail.html?id=${work.id}`;
+
+                const item = document.createElement('article');
+                item.className = 'portfolio-card';
+                item.innerHTML = `
+                    <a href="${link}" class="portfolio-card-link">
+                        <div class="portfolio-image">
+                            <img src="${imageUrl}" alt="${title}">
+                            <div class="portfolio-overlay">
+                                <span class="portfolio-category">${category}</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">${title}</h4>
+                            <p class="portfolio-description">${description}</p>
+                            <div class="portfolio-meta">
+                                <span class="portfolio-date">${completedDate}</span>
+                                <span class="portfolio-area">${area}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                portfolioGridContainer.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching portfolio:', error);
+            portfolioGridContainer.innerHTML = '<p>実績の読み込みに失敗しました。</p>';
+        });
+    }
 });
+
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {

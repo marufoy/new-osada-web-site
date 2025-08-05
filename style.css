@@ -304,6 +304,7 @@ body::after {
         repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(96, 165, 250, 0.02) 50px, rgba(96, 165, 250, 0.02) 52px);
     z-index: 0;
     animation: newsWave 12s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes newsWave {
