@@ -328,8 +328,6 @@ body::after {
     0%, 100% { transform: translateX(0px) skewX(0deg); }
     50% { transform: translateX(10px) skewX(1deg); }
 }
-    z-index: 0;
-}
 
 .news-section .container {
     position: relative;
@@ -521,8 +519,6 @@ body::after {
 @keyframes servicesPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.8; transform: scale(1.02); }
-}
-    z-index: 0;
 }
 
 .services-section .container {
@@ -1051,7 +1047,6 @@ body::after {
 @keyframes slowFloat {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
-    z-index: 0;
 }
 
 .access-section .container {
