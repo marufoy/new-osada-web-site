@@ -13,6 +13,7 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
     position: relative;
 }
@@ -401,6 +402,7 @@ body::after {
     padding: 120px 0;
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f8fafc 100%);
     position: relative;
+    overflow: hidden;
 }
 
 .about-section::after {
@@ -570,6 +572,7 @@ body::after {
     padding: 120px 0;
     background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 50%, #f8fafc 100%);
     position: relative;
+    overflow: hidden;
 }
 
 .strength-section::before {
@@ -590,12 +593,13 @@ body::after {
     content: '';
     position: absolute;
     bottom: 10%;
-    right: -5%;
+    right: 0;
     width: 200px;
     height: 200px;
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.06));
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     animation: triangleFloat 15s ease-in-out infinite;
+    transform: translateX(50%); /* 画面外に移動 */
 }
 
 @keyframes triangleFloat {
