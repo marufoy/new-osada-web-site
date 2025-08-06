@@ -1,0 +1,83 @@
+/* Detail Page Specific Styles */
+
+#content-area h1 {
+    font-size: 2.2rem;
+    color: #224053;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid #60a5fa;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+#content-area .post-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#content-area .post-content h2 {
+    font-size: 1.8rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+#content-area .post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+#content-area .post-content p {
+    margin-bottom: 25px;
+}
+
+#content-area .post-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+#content-area .post-content a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#content-area .post-content a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+#content-area .post-content ul,
+#content-area .post-content ol {
+    margin-bottom: 25px;
+    padding-left: 40px;
+}
+
+#content-area .post-content li {
+    margin-bottom: 10px;
+}
+
+#content-area .post-content blockquote {
+    margin: 40px 0;
+    padding: 20px 30px;
+    background: #f8fafc;
+    border-left: 4px solid #60a5fa;
+    font-style: italic;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    #content-area h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+}
