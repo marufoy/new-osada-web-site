@@ -71,31 +71,64 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(el);
     });
 
-    // Slick Slider for Works section
-    const worksSlider = document.querySelector('.works-slider');
-    if (worksSlider && typeof $ !== 'undefined') {
-        $(worksSlider).slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }
-            ]
+    // Fetch Latest Works for PICK UP WORKS section
+    const worksSliderContainer = document.getElementById('works-slider-container');
+    if (worksSliderContainer) {
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/works?limit=4&orders=-publishedAt`, {
+            headers: { 'X-MICROCMS-API-KEY': apiKey },
+        })
+        .then(response => response.json())
+        .then(data => {
+            worksSliderContainer.innerHTML = ''; // Clear loading message
+            data.contents.forEach(work => {
+                const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
+                const title = work.title;
+                const description = work.short_description || work.description || '詳細はこちらをご覧ください。';
+                const link = `works-detail.html?id=${work.id}`;
+
+                const slide = document.createElement('div');
+                slide.className = 'work-slide';
+                slide.innerHTML = `
+                    <img src="${imageUrl}" alt="${title}">
+                    <div class="work-overlay">
+                        <h4>${title}</h4>
+                        <p>${description}</p>
+                    </div>
+                `;
+                slide.addEventListener('click', () => { window.location.href = link; });
+                worksSliderContainer.appendChild(slide);
+            });
+
+            // Initialize Slick Slider after content is loaded
+            if (typeof $ !== 'undefined') {
+                $(worksSliderContainer).slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        }
+                    ]
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching works:', error);
+            worksSliderContainer.innerHTML = '<p>実績の読み込みに失敗しました。</p>';
         });
     }
 
