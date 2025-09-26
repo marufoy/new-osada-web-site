@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // microCMS Config
+    const serviceDomain = 'iymoqayrww';
+    const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
+
     // Header and Navigation
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -132,10 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // microCMS Config
-    const serviceDomain = 'iymoqayrww';
-    const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
-
+  
     // Fetch News from microCMS
     const newsListContainer = document.getElementById('news-list-container');
     if (newsListContainer) {
