@@ -4,6 +4,84 @@ document.addEventListener('DOMContentLoaded', function() {
     const serviceDomain = 'iymoqayrww';
     const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
 
+    // 元号変換関数
+    function convertToEra(year) {
+        if (year >= 2019) {
+            return `令和${year - 2018}年`;
+        } else if (year >= 1989) {
+            return `平成${year - 1988}年`;
+        } else if (year >= 1926) {
+            return `昭和${year - 1925}年`;
+        } else {
+            return `${year}年`;
+        }
+    }
+
+    // 元号から西暦に変換する関数
+    function convertEraToYear(eraString) {
+        if (!eraString) return null;
+        
+        // 令和の処理
+        const reiwaMatch = eraString.match(/令和(\d+)年?/);
+        if (reiwaMatch) {
+            return 2018 + parseInt(reiwaMatch[1]);
+        }
+        
+        // 平成の処理
+        const heiseiMatch = eraString.match(/平成(\d+)年?/);
+        if (heiseiMatch) {
+            return 1988 + parseInt(heiseiMatch[1]);
+        }
+        
+        // 昭和の処理
+        const showaMatch = eraString.match(/昭和(\d+)年?/);
+        if (showaMatch) {
+            return 1925 + parseInt(showaMatch[1]);
+        }
+        
+        // 西暦の処理
+        const yearMatch = eraString.match(/(\d{4})年?/);
+        if (yearMatch) {
+            return parseInt(yearMatch[1]);
+        }
+        
+        return null;
+    }
+
+    // Convert date string to era display format
+    function convertDateToEraDisplay(dateString) {
+        if (!dateString) return 'N/A';
+        
+        // If already in era format, return as is
+        if (dateString.includes('令和') || dateString.includes('平成') || dateString.includes('昭和')) {
+            return dateString;
+        }
+        
+        // Convert to era format
+        const year = convertEraToYear(dateString);
+        if (year) {
+            // Try to preserve month information
+            const monthPatterns = [
+                /(\d{4})年(\d{1,2})月/,
+                /(\d{4})-(\d{1,2})/,
+                /(\d{4})\/(\d{1,2})/,
+            ];
+            
+            for (const pattern of monthPatterns) {
+                const match = dateString.match(pattern);
+                if (match) {
+                    const month = parseInt(match[2]);
+                    return `${convertToEra(year)}${month}月`;
+                }
+            }
+            
+            // If no month found, return just the year
+            return convertToEra(year);
+        }
+        
+        return dateString;
+    }
+
     // Header and Navigation
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -137,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+  
     // Fetch News from microCMS
     const newsListContainer = document.getElementById('news-list-container');
     if (newsListContainer) {
