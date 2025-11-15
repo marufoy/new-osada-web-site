@@ -59,18 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             allWorks = data.contents;
             
-            // Generate year filter buttons
-            generateYearFilter();
-            
             // Set initial state - ensure "すべて" is active
             currentYearFilter = 'all';
-            document.querySelectorAll('.year-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            const allButton = document.querySelector('[data-year="all"]');
-            if (allButton) {
-                allButton.classList.add('active');
-            }
+            
+            // Generate year filter buttons (this will create the "すべて" button with active class)
+            generateYearFilter();
             
             // Apply initial sort and filter
             applySortAndFilter();
@@ -104,7 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clear existing buttons except "すべて"
         const allButton = yearFilter.querySelector('[data-year="all"]');
         yearFilter.innerHTML = '';
-        yearFilter.appendChild(allButton);
+        
+        // Recreate all button
+        const newAllButton = document.createElement('button');
+        newAllButton.className = 'year-button active';
+        newAllButton.dataset.year = 'all';
+        newAllButton.textContent = 'すべて';
+        yearFilter.appendChild(newAllButton);
 
         // Add year buttons with era display
         sortedYears.forEach(year => {
@@ -125,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             button.textContent = eraDisplay;
             button.dataset.year = year;
-            button.addEventListener('click', () => handleYearFilter(year));
             yearFilter.appendChild(button);
         });
     }
@@ -136,9 +134,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.year-button').forEach(btn => {
             btn.classList.remove('active');
         });
-        document.querySelector(`[data-year="${year}"]`).classList.add('active');
+        const targetButton = document.querySelector(`[data-year="${year}"]`);
+        if (targetButton) {
+            targetButton.classList.add('active');
+        }
         
-        currentYearFilter = year;
+        currentYearFilter = year === 'all' ? 'all' : year;
         applySortAndFilter();
         renderPortfolio();
     }
@@ -155,14 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('applySortAndFilter called with:', { currentYearFilter, currentSort, allWorksCount: allWorks.length });
         
         // Filter by year
-        if (currentYearFilter === 'all') {
+        if (currentYearFilter === 'all' || currentYearFilter === null || currentYearFilter === undefined) {
             filteredWorks = [...allWorks];
             console.log('Filtered to all works:', filteredWorks.length);
         } else {
             filteredWorks = allWorks.filter(work => {
                 if (!work.completed_date) return false;
                 const year = convertEraToYear(work.completed_date);
-                return year && year.toString() === currentYearFilter;
+                return year && year.toString() === currentYearFilter.toString();
             });
             console.log('Filtered to year', currentYearFilter, ':', filteredWorks.length);
         }
@@ -313,12 +314,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add click handler for year filter buttons
+    // Add click handler for year filter buttons (event delegation)
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('year-button')) {
             const year = e.target.dataset.year;
-            if (year !== currentYearFilter) {
-                handleYearFilter(year);
+            // Convert to number if it's not 'all'
+            const yearValue = year === 'all' ? 'all' : (isNaN(year) ? year : parseInt(year));
+            if (yearValue !== currentYearFilter) {
+                handleYearFilter(yearValue);
             }
         }
     });
