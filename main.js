@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Load Footer
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer) {
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    }
+
     // microCMS Config
     const serviceDomain = 'iymoqayrww';
     const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
