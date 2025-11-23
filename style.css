@@ -1217,22 +1217,35 @@ body::after {
     color: white;
 }
 
-.footer-sdgs {
+.footer-certifications {
     margin-top: 30px;
 }
 
-.sdgs-text {
+.certifications-text {
     color: #94a3b8;
     font-weight: 300;
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-.sdgs-image {
-    max-width: 200px;
+.certification-badges {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.certification-badge {
+    max-width: 100px;
     height: auto;
     display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.certification-badge:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
 .footer-bottom {
@@ -1725,8 +1738,12 @@ body::after {
         gap: 40px;
     }
     
-    .sdgs-image {
-        max-width: 150px;
+    .certification-badges {
+        gap: 15px;
+    }
+    
+    .certification-badge {
+        max-width: 140px;
     }
     
     .news-item {
