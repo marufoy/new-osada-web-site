@@ -1796,6 +1796,7 @@ body::after {
     
     .hero-title {
         font-size: 2rem;
+        white-space: nowrap;
     }
     
     .section-title {
