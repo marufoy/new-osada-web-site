@@ -344,23 +344,22 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
     });
 
-    // Add entrance animations to sections
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
+    // Add entrance animations to sections using ScrollReveal
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            distance: '30px',
+            duration: 800,
+            easing: 'ease-out',
+            origin: 'bottom',
+            interval: 100,
+            reset: false,
+            mobile: true,
+            viewFactor: 0.1
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    });
-    document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'all 0.8s ease';
-        sectionObserver.observe(section);
-    });
+        
+        // Apply animation to all sections except hero
+        sr.reveal('section:not(.hero)', {
+            delay: 0
+        });
+    }
 });
