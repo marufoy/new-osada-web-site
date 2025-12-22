@@ -1243,6 +1243,10 @@ body::after {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.certification-badge-iso {
+    max-width: 160px;
+}
+
 .certification-badge:hover {
     transform: translateY(-3px);
     opacity: 0.9;
@@ -1744,6 +1748,10 @@ body::after {
     
     .certification-badge {
         max-width: 140px;
+    }
+    
+    .certification-badge-iso {
+        max-width: 200px;
     }
     
     .news-item {
