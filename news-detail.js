@@ -8,13 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    fetch(`api-proxy.php?endpoint=news&id=${articleId}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
+    fetchMicroCMS('news', { id: articleId })
     .then(data => {
         const title = data.title;
         const content = data.content;

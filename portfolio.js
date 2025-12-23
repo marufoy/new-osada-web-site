@@ -48,8 +48,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Load portfolio data from microCMS
     function loadPortfolioData() {
-        fetch('api-proxy.php?endpoint=works')
-        .then(response => response.json())
+        fetchMicroCMS('works')
         .then(data => {
             allWorks = data.contents;
             
