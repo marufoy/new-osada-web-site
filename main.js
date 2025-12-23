@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
 
     // Load Footer
     const footerContainer = document.getElementById('footer-container');
@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // microCMS Config
-    const serviceDomain = 'iymoqayrww';
-    const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
+    // microCMS Config - config.phpから取得
+    const config = await loadMicroCMSConfig();
+    const serviceDomain = config.serviceDomain;
+    const apiKey = config.apiKey;
 
     // Header and Navigation
     const hamburger = document.querySelector('.hamburger');

@@ -1,7 +1,9 @@
-const serviceDomain = 'iymoqayrww';
-const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
+document.addEventListener('DOMContentLoaded', async () => {
+    // microCMS Config - config.phpから取得
+    const config = await loadMicroCMSConfig();
+    const serviceDomain = config.serviceDomain;
+    const apiKey = config.apiKey;
 
-document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const workId = params.get('id');
     const contentArea = document.getElementById('content-area');

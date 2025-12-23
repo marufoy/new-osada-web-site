@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // microCMS Config
-    const serviceDomain = 'iymoqayrww';
-    const apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
+document.addEventListener('DOMContentLoaded', async function() {
+    // microCMS Config - config.phpから取得
+    const config = await loadMicroCMSConfig();
+    const serviceDomain = config.serviceDomain;
+    const apiKey = config.apiKey;
 
     let allWorks = [];
     let filteredWorks = [];
