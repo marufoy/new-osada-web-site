@@ -13,11 +13,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
     }
 
-    // microCMS Config - config.phpから取得
-    const config = await loadMicroCMSConfig();
-    const serviceDomain = config.serviceDomain;
-    const apiKey = config.apiKey;
-
     // Header and Navigation
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -93,9 +88,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Latest Works for PICK UP WORKS section
     const worksSliderContainer = document.getElementById('works-slider-container');
     if (worksSliderContainer) {
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/works?limit=4&orders=-publishedAt`, {
-            headers: { 'X-MICROCMS-API-KEY': apiKey },
-        })
+        fetch('api-proxy.php?endpoint=works&limit=4&orders=-publishedAt')
         .then(response => response.json())
         .then(data => {
             worksSliderContainer.innerHTML = ''; // Clear loading message
@@ -154,9 +147,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch News from microCMS
     const newsListContainer = document.getElementById('news-list-container');
     if (newsListContainer) {
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/news?limit=4`, {
-            headers: { 'X-MICROCMS-API-KEY': apiKey },
-        })
+        fetch('api-proxy.php?endpoint=news&limit=4')
         .then(response => response.json())
         .then(data => {
             newsListContainer.innerHTML = ''; // Clear loading message
@@ -188,9 +179,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Portfolio from microCMS
     const portfolioGridContainer = document.getElementById('portfolio-grid-container');
     if (portfolioGridContainer) {
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/works`, {
-            headers: { 'X-MICROCMS-API-KEY': apiKey },
-        })
+        fetch('api-proxy.php?endpoint=works')
         .then(response => response.json())
         .then(data => {
             portfolioGridContainer.innerHTML = ''; // Clear loading message
@@ -235,9 +224,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Portfolio for Services page (3 items only)
     const servicesPortfolioGridContainer = document.getElementById('services-portfolio-grid');
     if (servicesPortfolioGridContainer) {
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/works?limit=3&orders=-publishedAt`, {
-            headers: { 'X-MICROCMS-API-KEY': apiKey },
-        })
+        fetch('api-proxy.php?endpoint=works&limit=3&orders=-publishedAt')
         .then(response => response.json())
         .then(data => {
             servicesPortfolioGridContainer.innerHTML = ''; // Clear loading message

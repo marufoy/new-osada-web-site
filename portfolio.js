@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // microCMS Config - config.phpから取得
-    const config = await loadMicroCMSConfig();
-    const serviceDomain = config.serviceDomain;
-    const apiKey = config.apiKey;
-
     let allWorks = [];
     let filteredWorks = [];
     let currentSort = 'newest';
@@ -53,9 +48,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Load portfolio data from microCMS
     function loadPortfolioData() {
-        fetch(`https://${serviceDomain}.microcms.io/api/v1/works`, {
-            headers: { 'X-MICROCMS-API-KEY': apiKey },
-        })
+        fetch('api-proxy.php?endpoint=works')
         .then(response => response.json())
         .then(data => {
             allWorks = data.contents;

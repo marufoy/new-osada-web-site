@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // microCMS Config - config.phpから取得
-    const config = await loadMicroCMSConfig();
-    const serviceDomain = config.serviceDomain;
-    const apiKey = config.apiKey;
-
     const params = new URLSearchParams(window.location.search);
     const articleId = params.get('id');
     const contentArea = document.getElementById('content-area');
@@ -13,11 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    fetch(`https://${serviceDomain}.microcms.io/api/v1/news/${articleId}`, {
-        headers: {
-            'X-MICROCMS-API-KEY': apiKey,
-        },
-    })
+    fetch(`api-proxy.php?endpoint=news&id=${articleId}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
