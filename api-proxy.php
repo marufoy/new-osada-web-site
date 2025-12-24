@@ -11,10 +11,21 @@ ini_set('display_errors', 1);
 $apiKey = $_SERVER['MICROCMS_API_KEY'] ?? '';
 $serviceDomain = $_SERVER['MICROCMS_SERVICE_DOMAIN'] ?? '';
 
-// ローカル環境：環境変数がない場合はフォールバック値を使用
+// ローカル環境：環境変数がない場合はlocal.config.phpから取得
 if (empty($apiKey) || empty($serviceDomain)) {
-    $apiKey = 'rTWbnMYGrd4MTgyuFOLytuDtxWWxPVSb43Zc';
-    $serviceDomain = 'iymoqayrww';
+    if (file_exists('local.config.php')) {
+        // local.config.phpから設定を読み込む
+        // local.config.phpはJSONを返すPHPファイルなので、出力をキャプチャしてパース
+        ob_start();
+        include 'local.config.php';
+        $jsonOutput = ob_get_clean();
+        $localConfig = json_decode($jsonOutput, true);
+        
+        if ($localConfig && isset($localConfig['apiKey']) && isset($localConfig['serviceDomain'])) {
+            $apiKey = $localConfig['apiKey'];
+            $serviceDomain = $localConfig['serviceDomain'];
+        }
+    }
 }
 
 // リクエストパラメータからエンドポイントとパラメータを取得

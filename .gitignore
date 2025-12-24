@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ローカル開発環境用設定ファイル
+local.config.php
