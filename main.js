@@ -88,10 +88,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Latest Works for PICK UP WORKS section
     const worksSliderContainer = document.getElementById('works-slider-container');
     if (worksSliderContainer) {
-        fetch('api-proxy.php?endpoint=works&limit=4&orders=-publishedAt')
-        .then(response => response.json())
+        fetchMicroCMS('works', { limit: 4, orders: '-publishedAt' })
         .then(data => {
             worksSliderContainer.innerHTML = ''; // Clear loading message
+            if (!data || !data.contents) {
+                throw new Error('Invalid data format received');
+            }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
                 const title = work.title;
@@ -147,10 +149,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch News from microCMS
     const newsListContainer = document.getElementById('news-list-container');
     if (newsListContainer) {
-        fetch('api-proxy.php?endpoint=news&limit=4')
-        .then(response => response.json())
+        fetchMicroCMS('news', { limit: 4 })
         .then(data => {
             newsListContainer.innerHTML = ''; // Clear loading message
+            if (!data || !data.contents) {
+                throw new Error('Invalid data format received');
+            }
             data.contents.forEach(article => {
                 const publishedAt = new Date(article.publishedAt).toLocaleDateString('ja-JP').replace(/\//g, '.');
                 const category = article.category || 'お知らせ';
@@ -179,10 +183,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Portfolio from microCMS
     const portfolioGridContainer = document.getElementById('portfolio-grid-container');
     if (portfolioGridContainer) {
-        fetch('api-proxy.php?endpoint=works')
-        .then(response => response.json())
+        fetchMicroCMS('works')
         .then(data => {
             portfolioGridContainer.innerHTML = ''; // Clear loading message
+            if (!data || !data.contents) {
+                throw new Error('Invalid data format received');
+            }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
                 const category = work.category || '実績';
@@ -224,10 +230,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch Portfolio for Services page (3 items only)
     const servicesPortfolioGridContainer = document.getElementById('services-portfolio-grid');
     if (servicesPortfolioGridContainer) {
-        fetch('api-proxy.php?endpoint=works&limit=3&orders=-publishedAt')
-        .then(response => response.json())
+        fetchMicroCMS('works', { limit: 3, orders: '-publishedAt' })
         .then(data => {
             servicesPortfolioGridContainer.innerHTML = ''; // Clear loading message
+            if (!data || !data.contents) {
+                throw new Error('Invalid data format received');
+            }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
                 const category = work.category || '実績';

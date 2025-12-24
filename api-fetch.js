@@ -14,14 +14,34 @@ async function fetchMicroCMS(endpoint, options = {}) {
     const response = await fetch(url);
     
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // エラーレスポンスの内容を取得して表示
+        let errorMessage = `HTTP error! status: ${response.status}`;
+        try {
+            const errorData = await response.json();
+            if (errorData.error) {
+                errorMessage = errorData.error;
+            }
+            // デバッグ情報をコンソールに出力
+            console.error('API Error Details:', errorData);
+        } catch (e) {
+            // JSONパースに失敗した場合はテキストを取得
+            const text = await response.text();
+            console.error('API Error Response:', text);
+        }
+        throw new Error(errorMessage);
     }
     
     const data = await response.json();
     
     // エラーチェック
     if (data.error) {
+        console.error('API Error in response:', data);
         throw new Error(data.error);
+    }
+    
+    // useDirectCallフラグのチェック（curlが使えない場合）
+    if (data.useDirectCall) {
+        throw new Error('Server-side proxy is not available. Please enable curl extension in PHP or use a different environment.');
     }
     
     return data;
