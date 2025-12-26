@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
-                const title = work.title;
-                const description = work.short_description || work.description || '詳細はこちらをご覧ください。';
+                const title = escapeHtml(work.title);
+                const description = escapeHtml(work.short_description || work.description || '詳細はこちらをご覧ください。');
                 const link = `works-detail.html?id=${work.id}`;
 
                 const slide = document.createElement('div');
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             data.contents.forEach(article => {
                 const publishedAt = new Date(article.publishedAt).toLocaleDateString('ja-JP').replace(/\//g, '.');
-                const category = article.category || 'お知らせ';
-                const title = article.title;
+                const category = escapeHtml(article.category || 'お知らせ');
+                const title = escapeHtml(article.title);
                 const link = `news-detail.html?id=${article.id}`;
 
                 const item = document.createElement('div');
@@ -191,11 +191,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
-                const category = work.category || '実績';
-                const title = work.title;
-                const description = work.short_description;
-                const completedDate = work.completed_date || 'N/A';
-                const area = work.area || 'N/A';
+                const category = escapeHtml(work.category || '実績');
+                const title = escapeHtml(work.title);
+                const description = escapeHtml(work.short_description || '');
+                const completedDate = escapeHtml(work.completed_date || 'N/A');
+                const area = escapeHtml(work.area || 'N/A');
                 const link = `works-detail.html?id=${work.id}`;
 
                 const item = document.createElement('article');
@@ -238,11 +238,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             data.contents.forEach(work => {
                 const imageUrl = work.list_image ? work.list_image.url : 'https://via.placeholder.com/400x300';
-                const category = work.category || '実績';
-                const title = work.title;
-                const description = work.short_description;
-                const completedDate = work.completed_date || 'N/A';
-                const area = work.area || 'N/A';
+                const category = escapeHtml(work.category || '実績');
+                const title = escapeHtml(work.title);
+                const description = escapeHtml(work.short_description || '');
+                const completedDate = escapeHtml(work.completed_date || 'N/A');
+                const area = escapeHtml(work.area || 'N/A');
                 const link = `works-detail.html?id=${work.id}`;
 
                 const item = document.createElement('article');

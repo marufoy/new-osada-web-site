@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return response.json();
     })
     .then(data => {
-        const title = data.title;
-        const content = data.content;
-        const completedDate = data.completed_date || 'N/A';
-        const area = data.area || 'N/A';
+        const title = escapeHtml(data.title);
+        const content = sanitizeHtml(data.content);
+        const completedDate = escapeHtml(data.completed_date || 'N/A');
+        const area = escapeHtml(data.area || 'N/A');
 
         document.title = `${title} - 長田建設株式会社`;
 

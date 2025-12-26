@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         return response.json();
     })
     .then(data => {
-        const title = data.title;
-        const content = data.content;
+        const title = escapeHtml(data.title);
+        const content = sanitizeHtml(data.content);
         const publishedAt = new Date(data.publishedAt).toLocaleDateString('ja-JP');
 
         document.title = `${title} - 長田建設株式会社`;
